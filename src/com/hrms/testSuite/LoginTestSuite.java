@@ -1,4 +1,4 @@
-package com.asi.testSuite;
+package com.hrms.testSuite;
 
 import java.io.IOException;
 
@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.asi.page.Login;
-import com.asi.page.Pim;
-import com.asi.populateTestSuite.TestSuite;
-import com.asi.util.AbstractHRMSTest;
+import com.hrms.page.Login;
+import com.hrms.page.Pim;
+import com.hrms.populateTestSuite.TestSuite;
+import com.hrms.util.AbstractHRMSTest;
 
 
 

@@ -1,4 +1,4 @@
-package com.asi.populateTestSuite;
+package com.hrms.populateTestSuite;
 
 import jxl.Sheet;
 

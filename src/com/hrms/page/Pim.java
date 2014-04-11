@@ -1,14 +1,14 @@
-package com.asi.page;
+package com.hrms.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import com.asi.common.Common;
-import com.asi.populateTestSuite.TestSuite;
-import com.asi.testSuite.*;
-import com.asi.util.AbstractHRMSTest;
+import com.hrms.common.Common;
+import com.hrms.populateTestSuite.TestSuite;
+import com.hrms.testSuite.*;
+import com.hrms.util.AbstractHRMSTest;
 
 public class Pim extends AbstractHRMSTest{
 

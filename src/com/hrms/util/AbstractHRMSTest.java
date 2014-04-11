@@ -1,4 +1,4 @@
-package com.asi.util;
+package com.hrms.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.asi.common.Common;
-import com.asi.common.FileUtil;
+import com.hrms.common.Common;
+import com.hrms.common.FileUtil;
 
 public  class AbstractHRMSTest   {
 

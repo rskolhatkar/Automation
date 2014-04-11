@@ -1,12 +1,12 @@
-package com.asi.testSuite;
+package com.hrms.testSuite;
 
 import org.openqa.selenium.support.PageFactory;
 
-import com.asi.page.Leave;
-import com.asi.page.Login;
-import com.asi.page.Pim;
-import com.asi.populateTestSuite.TestSuite;
-import com.asi.util.AbstractHRMSTest;
+import com.hrms.page.Leave;
+import com.hrms.page.Login;
+import com.hrms.page.Pim;
+import com.hrms.populateTestSuite.TestSuite;
+import com.hrms.util.AbstractHRMSTest;
 
 public class LeaveTestSuite extends AbstractHRMSTest{
 

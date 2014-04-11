@@ -1,4 +1,4 @@
-package com.asi.populateTestSuite;
+package com.hrms.populateTestSuite;
 
 import java.lang.reflect.Method;
 import java.util.List;

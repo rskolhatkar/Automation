@@ -1,4 +1,4 @@
-package com.asi.populateTestSuite;
+package com.hrms.populateTestSuite;
 
 public class TestSuite {
 

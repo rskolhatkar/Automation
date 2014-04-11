@@ -1,4 +1,4 @@
-package com.asi.report;
+package com.hrms.report;
 
 import java.io.FileInputStream;
 import java.util.Properties;

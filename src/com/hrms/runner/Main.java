@@ -1,9 +1,9 @@
-package com.asi.runner;
+package com.hrms.runner;
 
 import java.util.List;
-import com.asi.populateTestSuite.PopulateTestSuite;
-import com.asi.populateTestSuite.TestCaseSelector;
-import com.asi.report.TestReport;
+import com.hrms.populateTestSuite.PopulateTestSuite;
+import com.hrms.populateTestSuite.TestCaseSelector;
+import com.hrms.report.TestReport;
 
 
 public class Main {

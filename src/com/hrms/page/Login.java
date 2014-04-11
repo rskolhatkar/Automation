@@ -1,12 +1,12 @@
-package com.asi.page;
+package com.hrms.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.asi.common.Common;
-import com.asi.populateTestSuite.*;
-import com.asi.util.AbstractHRMSTest;
+import com.hrms.common.Common;
+import com.hrms.populateTestSuite.*;
+import com.hrms.util.AbstractHRMSTest;
 
 
 

@@ -1,4 +1,4 @@
-package com.asi.report;
+package com.hrms.report;
 
 
 import java.io.File;
@@ -10,8 +10,8 @@ import java.util.Properties;
 
 import javax.mail.MessagingException;
 
-import com.asi.populateTestSuite.TestSuite;
-import com.asi.testSuite.*;
+import com.hrms.populateTestSuite.TestSuite;
+import com.hrms.testSuite.*;
 
 import jxl.Cell;
 import jxl.Workbook;
