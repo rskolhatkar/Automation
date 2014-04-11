@@ -1,0 +1,115 @@
+<project name="AutomationProject" basedir="." default="clean">
+    
+    <property name="build.dir"   value="${basedir}/build"/>
+    <property name="lib.dir"     value="${basedir}/lib"/>
+    <property name="src.dir"     value="${basedir}/src"/>
+   <!-- <property name="classes.dir" value="${build.dir}/classes"/>-->
+    <property name="jar.dir" location="${basedir}/jar"/>
+	<property name="main-class"  value="com.asi.runner.Main"/>
+
+    <target name="setClassPath">
+      <path id="classpath_jars">
+        <pathelement path="${build.dir}"/>
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    	
+        </path>
+      <pathconvert pathsep=":" property="test.classpath" refid="classpath_jars"/>
+    </target>
+
+    <target name="loadTestNG" depends="setClassPath">
+    	<taskdef resource="testngtasks" classpath="${test.classpath}"/>
+    </target>
+    
+     <target name="init">
+		<mkdir dir="${build.dir}"/>
+        <mkdir dir="${jar.dir}"/>
+    </target>
+
+    <target name="clean">
+        <echo message="Deleting existing build directory"/>
+    	<delete dir="${jar.dir}"/>
+    	<delete dir="${build.dir}"/>
+        
+    </target>
+
+
+    <target name="compile" depends="clean,init,setClassPath,loadTestNG">
+    	 <!--	<echo message="classpath:${test.classpath}"/> -->
+    	<echo message="compiling..."/>
+    	 <!--		<mkdir dir="${classes.dir}"/>-->
+        <javac srcdir="${src.dir}" destdir="${build.dir}" classpath="${test.classpath}" includeantruntime="false"/>
+    </target>
+
+    <!--Creates the deployable jar file  -->
+	
+	<target name="jar" depends="compile">
+		<echo message="${jar.dir}"/>
+		<jar destfile="${jar.dir}\AutoJar.jar" >
+			<manifest>
+				<attribute name="Class-Path" value="
+					lib\apache-mime4j-0.6.jar
+					lib\bsh-1.3.0.jar
+					lib\cglib-nodep-2.1_3.jar
+					lib\commons-codec-1.8.jar
+					lib\commons-collections-3.2.1.jar
+					lib\commons-exec-1.1.jar
+					lib\commons-io-2.2.jar
+					lib\commons-jxpath-1.3.jar
+					lib\commons-lang3-3.1.jar
+					lib\commons-logging-1.1.1.jar
+					lib\cssparser-0.9.11.jar
+					lib\guava-15.0.jar
+					lib\hamcrest-core-1.3.jar
+					lib\hamcrest-library-1.3.jar
+					lib\htmlunit-2.13.jar
+					lib\htmlunit-core-js-2.13.jar
+					lib\httpclient-4.3.1.jar
+					lib\httpcore-4.3.jar
+					lib\httpmime-4.3.1.jar
+					lib\ini4j-0.5.2.jar
+					lib\jcommander-1.29.jar
+					lib\jetty-websocket-8.1.8.jar
+					lib\jna-3.4.0.jar
+					lib\jna-platform-3.4.0.jar
+					lib\json-20080701.jar
+					lib\junit-dep-4.11.jar
+					lib\jxl.jar
+					lib\mail.jar
+					lib\mailapi.jar
+					lib\nekohtml-1.9.19.jar
+					lib\netty-3.5.7.Final.jar
+					lib\operadriver-1.5.jar
+					lib\phantomjsdriver-1.0.4.jar
+					lib\protobuf-java-2.4.1.jar
+					lib\sac-1.3.jar
+					lib\selenium-java-2.38.0-srcs.jar
+					lib\selenium-java-2.38.0.jar
+					lib\serializer-2.7.1.jar
+					lib\testng-6.8.5.jar
+					lib\xalan-2.7.1.jar
+					lib\xercesImpl-2.10.0.jar
+					lib\xml-apis-1.4.01.jar" />
+				<attribute name="Built-By" value="RAGHAV"/>
+				<attribute name="Main-Class" value="com.asi.runner.Main" />
+			</manifest>
+			<fileset dir="${build.dir}"/>
+			<fileset dir="." includes="config/"/>
+			<fileset dir="." includes="lib/"/>
+			<fileset dir="." includes="reports/"/>
+		</jar>
+	</target>
+	
+	 <target name="run" depends="main">
+		<java classname="${main-class}" fork="true">
+		  <classpath>
+		     <path refid="classpath_jars"/>
+		     <path location="${jar.dir}\AutoJar.jar"/>
+		  </classpath>
+		 </java>
+	 </target>
+	
+	<target name="main" depends="compile, jar">
+			    <description>Main target</description>
+	</target>
+	
+</project>
