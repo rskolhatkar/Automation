@@ -17,9 +17,7 @@ public class populateTestData {
         
          Sheet sheet1 = wrk1.getSheet(0);
        
-    	// rows = number_of_testSuites.
-		// columns = number_of_parameters;
-         
+   
          employee.setEmplastname(sheet1.getCell(2, 1).getContents());
          employee.setEmpfirstname(sheet1.getCell(3, 1).getContents());
          employee.setEmpmiddle_name(sheet1.getCell(4, 1).getContents());
