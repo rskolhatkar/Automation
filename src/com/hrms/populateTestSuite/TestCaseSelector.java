@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TestCaseSelector {
 	
-	String testSuitePackage = "com.asi.testSuite.";
+	String testSuitePackage = "com.hrms.testSuite.";
 	
 	public void executeTestCases(List<Object> testSuiteObject) throws Exception{
 		

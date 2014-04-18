@@ -44,5 +44,7 @@
 	<classpathentry kind="lib" path="E:/Automation/AutomationProject/lib/xalan-2.7.1.jar"/>
 	<classpathentry kind="lib" path="E:/Automation/AutomationProject/lib/xercesImpl-2.10.0.jar"/>
 	<classpathentry kind="lib" path="E:/Automation/AutomationProject/lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="E:/Automation/AutomationProject/lib/mysql-connector-java-5.1.23.jar"/>
+	<classpathentry kind="lib" path="E:/Automation/AutomationProject/lib/standard.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

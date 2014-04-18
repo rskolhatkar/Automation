@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.hrms.common.Common;
+import com.hrms.dao.TestDataDao;
 import com.hrms.populateTestSuite.*;
 import com.hrms.util.AbstractHRMSTest;
 
@@ -37,18 +38,19 @@ public class Login extends AbstractHRMSTest{
 	public void loginToHRMS(TestSuite testSuite){
 		
 		Common cmn = new Common(driver);
-		
-		cmn.enterText(username_L, adminUsername);
-		cmn.enterText(password_L, adminPassWord);
+		cmn.enterText(username_L, testSuite.getLoginTestData().getUsername());
+		cmn.enterText(password_L, testSuite.getLoginTestData().getPassword());
 		cmn.clickButton(login_L);
+		
+		System.out.println(driver.findElement(By.id("welcome")).getText());
 	}
 	
 	
 	public Pim validLoginToHRMS(TestSuite testSuite){
 		Common cmn = new Common(driver);
-		
-		cmn.enterText(username_L, testSuite.getUsername());
-		cmn.enterText(password_L, testSuite.getPassword());
+		;
+		cmn.enterText(username_L, testSuite.getLoginTestData().getUsername());
+		cmn.enterText(password_L, testSuite.getLoginTestData().getPassword());
 		cmn.clickButton(login_L);
 		return PageFactory.initElements(driver, Pim.class);
 		

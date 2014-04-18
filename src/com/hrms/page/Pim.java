@@ -15,10 +15,10 @@ public class Pim extends AbstractHRMSTest{
 	WebDriver driver;
 	
 	private By welcome_L = By.id(uilocation.get("ui.pim.welcome"));
-	private By leaveMenu_L = By.id(uilocation.get("ui.menu.leave"));
-	private By employeeName_L = By.id(uilocation.get("ui.pim.configuration.employeeName"));
-	private By searchButton_L = By.id(uilocation.get("searchBtn"));
-	private By resultTableSingleResult_L = By.xpath(uilocation.get("ui.pim.configuration.resultTable.xpath"));
+//	private By leaveMenu_L = By.id(uilocation.get("ui.menu.leave"));
+//	private By employeeName_L = By.id(uilocation.get("ui.pim.configuration.employeeName"));
+//	private By searchButton_L = By.id(uilocation.get("searchBtn"));
+//	private By resultTableSingleResult_L = By.xpath(uilocation.get("ui.pim.configuration.resultTable.xpath"));
 	
 	
 	private String expected_value;
@@ -37,7 +37,7 @@ public class Pim extends AbstractHRMSTest{
 		actual_value = cmn.getUiText(welcome_L);
 		cmn.assertionCheck(testSuite, actual_value, expected_value);
 	}
-	
+	/*
 	public Leave navigateToLeave(TestSuite testSuite){
 		Common cmn = new Common(driver);
 		cmn.clickButton(leaveMenu_L);
@@ -52,5 +52,5 @@ public class Pim extends AbstractHRMSTest{
 		expected_value = "Raghav";
 		cmn.assertionCheck(testSuite, actual_value, expected_value);
 	}
-	
+	*/
 }

@@ -28,8 +28,8 @@ public class PopulateSuites {
 		testSuite.setTestCaseId(sheet1.getCell(1, k).getContents());
 		testSuite.setTestCaseName(sheet1.getCell(2, k).getContents());
 		testSuite.setTestExecutionFlag(sheet1.getCell(3, k).getContents());
-		testSuite.setUsername(sheet1.getCell(4, k).getContents());
-		testSuite.setPassword(sheet1.getCell(5, k).getContents());
+//		testSuite.setUsername(sheet1.getCell(4, k).getContents());
+//		testSuite.setPassword(sheet1.getCell(5, k).getContents());
     	return testSuite;
     }
 
@@ -42,8 +42,8 @@ public TestSuite populateLeaveSuite (TestSuite testSuite,int k ,Sheet sheet1){
 		testSuite.setTestCaseId(sheet1.getCell(1, k).getContents());
 		testSuite.setTestCaseName(sheet1.getCell(2, k).getContents());
 		testSuite.setTestExecutionFlag(sheet1.getCell(3, k).getContents());
-		testSuite.setUsername(sheet1.getCell(4, k).getContents());
-		testSuite.setPassword(sheet1.getCell(5, k).getContents());
+//		testSuite.setUsername(sheet1.getCell(4, k).getContents());
+//		testSuite.setPassword(sheet1.getCell(5, k).getContents());
     	return testSuite;
     }
 }

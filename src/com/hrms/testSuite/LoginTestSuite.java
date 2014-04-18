@@ -1,23 +1,15 @@
 package com.hrms.testSuite;
 
-import java.io.IOException;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.hrms.dao.TestDataDao;
 import com.hrms.page.Login;
 import com.hrms.page.Pim;
 import com.hrms.populateTestSuite.TestSuite;
 import com.hrms.util.AbstractHRMSTest;
 
 
-
-
 public class LoginTestSuite extends AbstractHRMSTest {
-	
-	
 	
 	public TestSuite TC_login_01(TestSuite testSuite) throws Exception{
 		
@@ -64,8 +56,10 @@ public class LoginTestSuite extends AbstractHRMSTest {
 	}
      
      public TestSuite TC_login_05(TestSuite testSuite) {
-  		try{
+    	 TestDataDao dao = new TestDataDao();
+    	 try{
 		 getController();
+		 dao.addEmployee(testSuite , Integer.parseInt(applications.get("user.role.ess")));
 		 Login login = PageFactory.initElements(driver, Login.class);
 		 Pim pim = login.validLoginToHRMS(testSuite);
 	     pim.checkLoginUser(testSuite);
@@ -73,9 +67,75 @@ public class LoginTestSuite extends AbstractHRMSTest {
   		}catch(Exception e) {
     		testSuite.setTestExecutionStatus("Failed");
 			testSuite.setTestExecutionErrorMessage("Exception in TC_login_05 : " + e.getMessage());
+			e.printStackTrace();
+    	}finally{
+    		driver.close();
+   		 dao.deleteEmployee(testSuite.getEmp_number());
     	}
-  		driver.close();
   		System.out.println("      Execution Completed for : TC_login_05");
+		return testSuite;
+	}
+     
+     public TestSuite TC_login_06(TestSuite testSuite) {
+    	 TestDataDao dao = new TestDataDao();
+    	 try{
+ 		 getController();
+ 		
+ 		 dao.addEmployee(testSuite , Integer.parseInt(applications.get("user.role.consultant")));
+ 		 Login login = PageFactory.initElements(driver, Login.class);
+		 login.loginToHRMS(testSuite);
+ 	     
+   		}catch(Exception e) {
+     		testSuite.setTestExecutionStatus("Failed");
+ 			testSuite.setTestExecutionErrorMessage("Exception in TC_login_06 : " + e.getMessage());
+ 			e.printStackTrace();
+     	}finally{
+     		driver.close();
+    		 dao.deleteEmployee(testSuite.getEmp_number());
+     	}
+   		System.out.println("      Execution Completed for : TC_login_06");
+ 		return testSuite;
+ 	}
+     
+     public TestSuite TC_login_07(TestSuite testSuite) {
+    	 TestDataDao dao = new TestDataDao();
+    	 try{
+  		 getController();
+  		 
+  		 dao.addEmployee(testSuite , Integer.parseInt(applications.get("user.role.recruitmentManager")));
+  		 Login login = PageFactory.initElements(driver, Login.class);
+		 login.loginToHRMS(testSuite);
+  	     
+    		}catch(Exception e) {
+      		testSuite.setTestExecutionStatus("Failed");
+  			testSuite.setTestExecutionErrorMessage("Exception in TC_login_07 : " + e.getMessage());
+  			e.printStackTrace();
+      	}finally{
+      		driver.close();
+      		dao.deleteEmployee(testSuite.getEmp_number());
+      	}
+    		System.out.println("      Execution Completed for : TC_login_07");
+  		return testSuite;
+  	}
+     
+     public TestSuite TC_login_08(TestSuite testSuite) {
+    	 TestDataDao dao = new TestDataDao();
+ 		try{
+		 getController();
+		
+		 dao.addEmployee(testSuite , Integer.parseInt(applications.get("user.role.admin")));
+		 Login login = PageFactory.initElements(driver, Login.class);
+		 login.loginToHRMS(testSuite);
+	     
+ 		}catch(Exception e) {
+   		testSuite.setTestExecutionStatus("Failed");
+			testSuite.setTestExecutionErrorMessage("Exception in TC_login_08 : " + e.getMessage());
+			e.printStackTrace();
+   	}finally{
+   		driver.close();
+     	dao.deleteEmployee(testSuite.getEmp_number());
+   	}
+ 		System.out.println("      Execution Completed for : TC_login_08");
 		return testSuite;
 	}
      

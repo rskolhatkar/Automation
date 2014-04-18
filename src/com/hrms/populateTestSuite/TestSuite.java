@@ -9,21 +9,20 @@ public class TestSuite {
 	String testSuiteName;
 	String testExecutionStatus;
 	String testExecutionErrorMessage;
-	String username;
+	int emp_number;
+	public LoginTestData loginTestData;
 	
-	public String getUsername() {
-		return username;
+
+	public TestSuite(){
+		loginTestData = new LoginTestData();
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	
+	public int getEmp_number() {
+		return emp_number;
 	}
-	public String getPassword() {
-		return password;
+	public void setEmp_number(int emp_number) {
+		this.emp_number = emp_number;
 	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	String password;
 	
 	public String getTestExecutionFlag() {
 		return testExecutionFlag;
@@ -62,4 +61,11 @@ public class TestSuite {
 		this.testExecutionErrorMessage = testExecutionErrorMessage;
 	}
 	
+	public LoginTestData getLoginTestData(){
+		return loginTestData;
+	}
+	
+	public void setLoginTestData(LoginTestData loginTestData){
+		this.loginTestData = loginTestData;
+	}
 }
