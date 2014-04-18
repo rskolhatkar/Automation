@@ -11,9 +11,9 @@ import java.sql.Statement;
 
 import jxl.read.biff.BiffException;
 
-import com.hrms.TestData.EmployeeLoginTestData;
-import com.hrms.TestData.EmployeeTestData;
-import com.hrms.TestData.populateTestData;
+import com.hrms.testData.EmployeeLoginTestData;
+import com.hrms.testData.EmployeeTestData;
+import com.hrms.testData.populateTestData;
 import com.hrms.populateTestSuite.*;
 import com.hrms.util.DbUtil;  
   
@@ -21,11 +21,7 @@ import com.hrms.util.DbUtil;
   
 public class TestDataDao {  
   
-  
-  
     private Connection connection;  
-  
-  
   
     public TestDataDao() {  
   

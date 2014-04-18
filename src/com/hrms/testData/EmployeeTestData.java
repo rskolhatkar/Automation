@@ -1,4 +1,4 @@
-package com.hrms.TestData;
+package com.hrms.testData;
 
 import java.sql.Date;
 

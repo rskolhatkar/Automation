@@ -17,8 +17,8 @@ public TestSuite TC_LEAVE_01(TestSuite testSuite) throws Exception{
 		getController();
 		Login login = PageFactory.initElements(driver, Login.class);
 		Pim pim = login.validLoginToHRMS(testSuite);
-		Leave leave = pim.navigateToLeave(testSuite);
-		leave.loginLeaveModuleByAdmin(testSuite);
+	//	Leave leave = pim.navigateToLeave(testSuite);
+	//	leave.loginLeaveModuleByAdmin(testSuite);
 		driver.close();
 		System.out.println("      Execution Completed for : TC_LEAVE_01");
 		return testSuite;

@@ -1,4 +1,4 @@
-package com.hrms.TestData;
+package com.hrms.testData;
 
 import java.io.File;
 import java.io.IOException;
