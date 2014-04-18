@@ -62,7 +62,7 @@ public class TestDataDao {
     	
     	LoginTestData login = testSuite.getLoginTestData();
     	login.setPassword("test");
-    	login.setUsername("test" + emp_number);
+    	login.setUsername("testE" + emp_number);
  
     	try{
     		PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO orangehrm_db.hs_hr_employee "
@@ -123,6 +123,8 @@ public class TestDataDao {
     	EmployeeLoginTestData e = populate.populateEmployeeLoginDetails();
     	e.setUser_role_id(user_role_id);
     	e.setEmp_number(emp_number);
+    	e.setUser_name("testE" + emp_number);
+    	
     	
     	try{
     		PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO orangehrm_db.ohrm_user"

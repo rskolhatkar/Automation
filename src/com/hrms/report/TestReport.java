@@ -84,7 +84,7 @@ public class TestReport {
 	                	writableSheet.addCell(new Label (1,i,testCase.getTestCaseId(),CellFormat(Colour.BLACK, Alignment.CENTRE)));
 	                	writableSheet.addCell(new Label (2,i,testCase.getTestCaseName(),CellFormat(Colour.BLACK, Alignment.CENTRE)));
 	                	writableSheet.addCell(new Label (3,i,testCase.getTestExecutionFlag(),CellFormat(Colour.BLACK, Alignment.CENTRE)));
-	                	
+	                	System.out.println(testCase.getTestExecutionStatus());
 	                	if (testCase.getTestExecutionStatus().equalsIgnoreCase("Failed") ){
 	                		writableSheet.addCell(new Label (4,i,testCase.getTestExecutionStatus(),CellFormat(Colour.RED, Alignment.CENTRE)));
 	                	}else if(testCase.getTestExecutionStatus().equalsIgnoreCase("Passed")){

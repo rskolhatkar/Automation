@@ -42,8 +42,7 @@ public class populateTestData {
 		EmployeeLoginTestData employee= new EmployeeLoginTestData();
         
          Sheet sheet1 = wrk1.getSheet(0);
-       
-    	employee.setUser_name(sheet1.getCell(3, 1).getContents());
+//    	employee.setUser_name(sheet1.getCell(3, 1).getContents());
     	employee.setUser_password(sheet1.getCell(4, 1).getContents());
         employee.setDeleted(Integer.parseInt(sheet1.getCell(5, 1).getContents())); 
         employee.setStatus(Integer.parseInt(sheet1.getCell(6, 1).getContents())); 

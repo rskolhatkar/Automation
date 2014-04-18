@@ -73,7 +73,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
    		 dao.deleteEmployee(testSuite.getEmp_number());
     	}
   		System.out.println("      Execution Completed for : TC_login_05");
-		return testSuite;
+ 		return testSuite;
 	}
      
      public TestSuite TC_login_06(TestSuite testSuite) {
@@ -83,7 +83,8 @@ public class LoginTestSuite extends AbstractHRMSTest {
  		
  		 dao.addEmployee(testSuite , Integer.parseInt(applications.get("user.role.consultant")));
  		 Login login = PageFactory.initElements(driver, Login.class);
-		 login.loginToHRMS(testSuite);
+ 		 Pim pim = login.validLoginToHRMS(testSuite);
+	     pim.checkLoginUser(testSuite);
  	     
    		}catch(Exception e) {
      		testSuite.setTestExecutionStatus("Failed");
@@ -104,7 +105,8 @@ public class LoginTestSuite extends AbstractHRMSTest {
   		 
   		 dao.addEmployee(testSuite , Integer.parseInt(applications.get("user.role.recruitmentManager")));
   		 Login login = PageFactory.initElements(driver, Login.class);
-		 login.loginToHRMS(testSuite);
+  		Pim pim = login.validLoginToHRMS(testSuite);
+	     pim.checkLoginUser(testSuite);
   	     
     		}catch(Exception e) {
       		testSuite.setTestExecutionStatus("Failed");
@@ -125,7 +127,8 @@ public class LoginTestSuite extends AbstractHRMSTest {
 		
 		 dao.addEmployee(testSuite , Integer.parseInt(applications.get("user.role.admin")));
 		 Login login = PageFactory.initElements(driver, Login.class);
-		 login.loginToHRMS(testSuite);
+		 Pim pim = login.validLoginToHRMS(testSuite);
+	     pim.checkLoginUser(testSuite);
 	     
  		}catch(Exception e) {
    		testSuite.setTestExecutionStatus("Failed");

@@ -5,7 +5,7 @@
     <property name="src.dir"     value="${basedir}/src"/>
    <!-- <property name="classes.dir" value="${build.dir}/classes"/>-->
     <property name="jar.dir" location="${basedir}/jar"/>
-	<property name="main-class"  value="com.asi.runner.Main"/>
+	<property name="main-class"  value="com.hrms.runner.Main"/>
 
     <target name="setClassPath">
       <path id="classpath_jars">
@@ -90,7 +90,7 @@
 					lib\xercesImpl-2.10.0.jar
 					lib\xml-apis-1.4.01.jar" />
 				<attribute name="Built-By" value="RAGHAV"/>
-				<attribute name="Main-Class" value="com.asi.runner.Main" />
+				<attribute name="Main-Class" value="com.hrms.runner.Main" />
 			</manifest>
 			<fileset dir="${build.dir}"/>
 			<fileset dir="." includes="config/"/>

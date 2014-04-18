@@ -1,5 +1,7 @@
 package com.hrms.populateTestSuite;
 
+import com.hrms.testSuite.LoginTestSuite;
+
 import jxl.Sheet;
 
 public class PopulateSuites {
@@ -28,8 +30,12 @@ public class PopulateSuites {
 		testSuite.setTestCaseId(sheet1.getCell(1, k).getContents());
 		testSuite.setTestCaseName(sheet1.getCell(2, k).getContents());
 		testSuite.setTestExecutionFlag(sheet1.getCell(3, k).getContents());
-//		testSuite.setUsername(sheet1.getCell(4, k).getContents());
-//		testSuite.setPassword(sheet1.getCell(5, k).getContents());
+		
+		LoginTestData login =  testSuite.getLoginTestData();
+		login.setTest1(sheet1.getCell(4, k).getContents());
+		login.setTest2(sheet1.getCell(5, k).getContents());
+		login.setTest3(sheet1.getCell(6, k).getContents());
+		
     	return testSuite;
     }
 
