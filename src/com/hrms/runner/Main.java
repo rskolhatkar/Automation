@@ -15,12 +15,15 @@ public class Main {
 
 		List<Object> testSuiteParametrersObject	 =	testSuite.populateTestSuiteParameters();
 		List<Object> testSuiteObject = testSuite.populateTestSuite(testSuiteParametrersObject);
+	
 		System.out.println("******* TEST EXECUTION IS STARTED *******");
 		System.out.println("Total Test Cases to execute : " + testSuiteObject.size());
 		
 		TestCaseSelector selector = new TestCaseSelector();
 		selector.executeTestCases(testSuiteObject);
+		
 		System.out.println("****** TEST EXECUTION IS COMPLETED ******");
+		
 		TestReport testResultReport = new TestReport();
 		testResultReport.getTestResultReport(testSuiteObject);
 	}

@@ -47,6 +47,7 @@ public class PopulateTestSuite {
             	for (int j = 0; j < cols_number_of_parameters ; j++){
             		cell = sheet1.getCell(j, i);
             		testSuiteList.add(cell.getContents());
+            		
             	}
             }
             
@@ -63,27 +64,28 @@ public class PopulateTestSuite {
 	    	List testSuiteList = getTestSuiteParameters();
 	    	List<Object> testSuiteParameterObjectList = new ArrayList<Object>();
 
-	    	int testSuiteNumber;
+			int testSuiteNumber;
 	    	String testSuiteName;
 	    	int testCaseCount;
 	    	int testSuiteParameterCount;
 	    	String testSuiteExecutionFlag;
 	    	
 			int rows = number_of_testSuites;
-				
+			
 			int size = testSuiteList.size()/rows;
+			int l = size;			
 			int k =0;
 			int j ;
 			for (int i=0 ; i < rows ; i++) {
 				
-			for (j= k; j < size; ) {
+				for (j= k; j < l; ) {
 
 				testSuiteNumber = Integer.parseInt(testSuiteList.get(j).toString());
 				testSuiteName = testSuiteList.get(j+1).toString();
 				testCaseCount = Integer.parseInt(testSuiteList.get(j+2).toString());
 				testSuiteExecutionFlag = (String) testSuiteList.get(j+3);
 				testSuiteParameterCount = Integer.parseInt(testSuiteList.get(j+4).toString());
-				j = size;
+				j = l;
 				
 				TestSuiteParameters testSuiteParameters = new TestSuiteParameters();
 				testSuiteParameters.setTestCaseCount(testCaseCount);
@@ -98,8 +100,9 @@ public class PopulateTestSuite {
 			    	System.out.println("EXCEPTION");
 			    }
 			}
-			k = size;
-			size= size+size;
+			k = l; 
+			l= l + size ;  
+			
 			}
 			
 			return testSuiteParameterObjectList;
@@ -127,14 +130,13 @@ public class PopulateTestSuite {
 	    		
 	    				if(testSuiteExecutionFlag.equalsIgnoreCase("Y")){
 	    		    		Sheet sheet1 = wrk1.getSheet(testSuiteNumber);
-	             
+	          
 	    		    		int rows_number_of_testCases = testCaseCount;
 	             
 	    		    		// rows = number_of_testCases.
 	    		    		// columns = number_of_parameters;
 	    		    		for (int k = 1; k <= rows_number_of_testCases ; k++){
 	    		    			TestSuite testSuite = new TestSuite();
-	    		    			
 	    		    			testSuiteObjectList.add(populate.populate(testSuite, k, sheet1, testSuiteName));	
 	    		    		}
 	            

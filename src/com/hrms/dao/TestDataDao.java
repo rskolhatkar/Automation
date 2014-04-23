@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;  
 import java.sql.SQLException;  
 import java.sql.Statement;  
+import java.util.List;
 
 import jxl.read.biff.BiffException;
 
@@ -47,7 +48,6 @@ public class TestDataDao {
         return emp_number+1;
     }
     
-  
     public TestSuite addEmployee(TestSuite testSuite , int user_role_id) throws BiffException, IOException{
     	
     	int emp_number = getMaxEmployeeNumber();
@@ -174,6 +174,82 @@ public class TestDataDao {
     	}
     }
     
+    
+    public List<Object> addMultipleEmployees(int number_of_Employees) throws BiffException, IOException{
+    	
+    	populateTestData populate = new populateTestData();
+    	List<Object> employeeList = populate.populateMultipleEmployee(number_of_Employees);
+    	employeeList.size();
+    	for (int i = 0; i <employeeList.size();i++ ){
+    		EmployeeTestData e= (EmployeeTestData) employeeList.get(i);
+    		int emp_number = getMaxEmployeeNumber();
+    		e.setEmp_number(emp_number);
+    		try{
+        		PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO orangehrm_db.hs_hr_employee "
+        				+ "(emp_number, "
+        				+ "employee_id, "
+        				+ "emp_lastname, "
+        				+ "emp_firstname, "
+        				+ "emp_middle_name, "
+        				+ "emp_smoker, "
+        				+ "emp_gender, "
+        				+ "emp_marital_status, "
+        				+ "job_title_code, "
+        				+ "emp_street1, "
+        				+ "emp_street2, "
+        				+ "city_code, "
+        				+ "coun_code, "
+        				+ "provin_code, "
+        				+ "emp_zipcode, "
+        				+ "emp_mobile, "
+        				+ "emp_work_email, "
+        				+ "joined_date) "
+        				+ "VALUES "
+        				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        		 preparedStatement.setInt(1, e.getEmp_number());
+        		 preparedStatement.setString(2, e.getEmp_id() );
+        		 preparedStatement.setString(3,  e.getEmplastname());
+        		 preparedStatement.setString(4,  e.getEmpfirstname());
+        		 preparedStatement.setString(5,  e.getEmpmiddle_name());
+        		 preparedStatement.setInt(6,  e.getEmp_smoker());
+         		 preparedStatement.setInt(7,  e.getEmp_gender());
+        		 preparedStatement.setString(8,  e.getEmp_marital_status());
+        		 preparedStatement.setInt(9,  e.getJob_title_code());
+        		 preparedStatement.setString(10,  e.getEmpstreet1());
+        		 preparedStatement.setString(11,  e.getEmpstreet1());
+        		 preparedStatement.setString(12,   e.getCity_code());
+        		 preparedStatement.setString(13,  e.getCoun_code());
+        		 preparedStatement.setString(14,  e.getProvin_code());
+        		 preparedStatement.setString(15,  e.getEmp_zipcode());
+        		 preparedStatement.setString(16,  e.getEmp_mobile());
+        		 preparedStatement.setString(17,  e.getEmp_work_email());
+           		 preparedStatement.setDate(18,  e.getJoined_date());
+           		preparedStatement.executeUpdate();  
+           		
+           		preparedStatement.close();
+           		
+           		addLoginDetails(emp_number , 2);
+           		
+        	}catch (SQLException ee) {  
+               ee.printStackTrace();  
+            }
+    		
+    		
+    	}
+    	
+    	return employeeList;
+    	
+    }
+    
+    
+    
+    public void deleteMultipleEployees(List<Object> employeeList){
+    	for (int i = 0; i <employeeList.size();i++ ){
+    		EmployeeTestData e= (EmployeeTestData) employeeList.get(i);
+    		deleteEmployee(e.getEmp_number());
+    	}
+    	
+    }
   /*
   
     public void addEmployee() {  

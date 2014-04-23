@@ -2,6 +2,7 @@ package com.hrms.testData;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jxl.Cell;
@@ -42,7 +43,6 @@ public class populateTestData {
 		EmployeeLoginTestData employee= new EmployeeLoginTestData();
         
          Sheet sheet1 = wrk1.getSheet(0);
-//    	employee.setUser_name(sheet1.getCell(3, 1).getContents());
     	employee.setUser_password(sheet1.getCell(4, 1).getContents());
         employee.setDeleted(Integer.parseInt(sheet1.getCell(5, 1).getContents())); 
         employee.setStatus(Integer.parseInt(sheet1.getCell(6, 1).getContents())); 
@@ -53,5 +53,39 @@ public class populateTestData {
         return employee;
 	}
 	
+	public List<Object> populateMultipleEmployee(int number_of_Employees) throws BiffException, IOException{
+		Workbook wrk1 =  Workbook.getWorkbook(new File("../AutomationProject/testData/EmployeeRecord.xls"));
+        
+         Sheet sheet1 = wrk1.getSheet(0);
+       
+         List<Object> employeeList = new ArrayList<Object>();
+      
+         int number_of_rows = number_of_Employees + 4;		 
+
+         for (int i = 4; i < number_of_rows ; i++){
+          		EmployeeTestData employee= new EmployeeTestData();
+          		employee.setEmp_id(sheet1.getCell(1, i).getContents());
+                employee.setEmplastname(sheet1.getCell(2, i).getContents());
+                employee.setEmpfirstname(sheet1.getCell(3, i).getContents());
+                employee.setEmpmiddle_name(sheet1.getCell(4, i).getContents());
+                employee.setEmp_smoker(Integer.parseInt(sheet1.getCell(6, i).getContents()));
+                employee.setEmp_gender(Integer.parseInt(sheet1.getCell(10, i).getContents()));
+                employee.setEmp_marital_status(sheet1.getCell(11, i).getContents());
+                employee.setJob_title_code(Integer.parseInt(sheet1.getCell(19, i).getContents()));
+                employee.setEmpstreet1(sheet1.getCell(22, i).getContents());
+                employee.setEmpstreet2(sheet1.getCell(23, i).getContents());
+                employee.setCity_code(sheet1.getCell(24, i).getContents());
+                employee.setCoun_code(sheet1.getCell(25, i).getContents());
+                employee.setProvin_code(sheet1.getCell(26, i).getContents());
+                employee.setEmp_zipcode(sheet1.getCell(27, i).getContents());
+                employee.setEmp_mobile(sheet1.getCell(28, i).getContents());
+                employee.setEmp_work_email(sheet1.getCell(31, i).getContents());
+                employee.setJoined_date(java.sql.Date.valueOf(sheet1.getCell(33, i).getContents()));
+        		employeeList.add(employee);
+        	
+        }
+        
+         return employeeList;
+	}
 	
 }

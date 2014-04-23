@@ -11,10 +11,20 @@ public class TestSuite {
 	String testExecutionErrorMessage;
 	int emp_number;
 	public LoginTestData loginTestData;
+	public DirectoryTestData directoryTestData;
 	
+
+	public DirectoryTestData getDirectoryTestData() {
+		return directoryTestData;
+	}
+
+	public void setDirectoryTestData(DirectoryTestData directoryTestData) {
+		this.directoryTestData = directoryTestData;
+	}
 
 	public TestSuite(){
 		loginTestData = new LoginTestData();
+		directoryTestData = new DirectoryTestData();
 	}
 	
 	public int getEmp_number() {

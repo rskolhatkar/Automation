@@ -44,13 +44,13 @@ public class Login extends AbstractHRMSTest{
 	}
 	
 	
-	public Pim validLoginToHRMS(TestSuite testSuite){
+	public MyInfo validLoginToHRMS(TestSuite testSuite){
 		Common cmn = new Common(driver);
 		
 		cmn.enterText(username_L, testSuite.getLoginTestData().getUsername());
 		cmn.enterText(password_L, testSuite.getLoginTestData().getPassword());
 		cmn.clickButton(login_L);
-		return PageFactory.initElements(driver, Pim.class);
+		return PageFactory.initElements(driver, MyInfo.class);
 		
 	}
 	
