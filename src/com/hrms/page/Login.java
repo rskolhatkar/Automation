@@ -60,7 +60,7 @@ public class Login extends AbstractHRMSTest{
 		expected_value = expected.get("login.loginPanel");
 		actual_value = cmn.getUiText(loginPanel_L);
 		cmn.assertionCheck(testSuite, actual_value, expected_value);
-	
+		cmn.takeScreenShots(testSuite);
 	}
 
 	public void loginWithBlankUsername(TestSuite testSuite){
@@ -70,7 +70,7 @@ public class Login extends AbstractHRMSTest{
 	    expected_value = expected.get("login.blankUsername");
 		actual_value = cmn.getUiText(blankUsername_L);
 		cmn.assertionCheck(testSuite, actual_value, expected_value);
-	
+		cmn.takeScreenShots(testSuite);
 	}
 	
 	public void loginWithBlankPassword(TestSuite testSuite){
@@ -89,7 +89,7 @@ public class Login extends AbstractHRMSTest{
 		expected_value = expected.get("login.blankUsername");
 		actual_value = cmn.getUiText(blankUsername_L);
 		cmn.assertionCheck(testSuite, actual_value, expected_value);
-	
+		cmn.takeScreenShots(testSuite);
 	}
 	
 	

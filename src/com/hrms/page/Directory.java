@@ -1,7 +1,14 @@
 package com.hrms.page;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.Augmenter;
 
 import com.hrms.common.Common;
 import com.hrms.populateTestSuite.TestSuite;
@@ -27,7 +34,7 @@ public class Directory  extends AbstractHRMSTest{
 	}
 	
 	
-	public void searchByValidEmployeeName(TestSuite testSuite){
+	public void searchByValidEmployeeName(TestSuite testSuite) throws IOException{
 		
 		Common cmn = new Common(driver);
 		cmn.enterText(empName_L,  testSuite.getDirectoryTestData().getEmployeeName());
@@ -36,5 +43,21 @@ public class Directory  extends AbstractHRMSTest{
 		expected_value = testSuite.getDirectoryTestData().getEmployeeId() +", "+ testSuite.getDirectoryTestData().getEmployeeName();
 		actual_value = cmn.getUiText(By.xpath("//*[@id='resultTable']/tbody/tr/td[2]/span[1]"));
 		cmn.assertionCheck(testSuite, actual_value, expected_value);
+		cmn.takeScreenShots(testSuite);
+	} 
+	
+public void searchByValidEmployeeID(TestSuite testSuite) throws IOException{
+		
+		Common cmn = new Common(driver);	
+		cmn.enterText(empId_L,  testSuite.getDirectoryTestData().getEmployeeId());
+		cmn.clickButton(searchBtn_L);
+		
+		expected_value = testSuite.getDirectoryTestData().getEmployeeId() +", "+ testSuite.getDirectoryTestData().getEmployeeName();
+		actual_value = cmn.getUiText(By.xpath("//*[@id='resultTable']/tbody/tr/td"));
+		if (actual_value.equalsIgnoreCase("")){
+			actual_value = cmn.getUiText(By.xpath("//*[@id='resultTable']/tbody/tr/td[2]/span[1]"));
+		}
+		cmn.assertionCheck(testSuite, actual_value, expected_value);
+		
 	} 
 }

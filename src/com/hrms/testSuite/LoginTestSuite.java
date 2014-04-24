@@ -10,36 +10,57 @@ import com.hrms.util.AbstractHRMSTest;
 
 public class LoginTestSuite extends AbstractHRMSTest {
 	
-	public TestSuite TC_login_01(TestSuite testSuite) throws Exception{
-		
-		getController();
-		Login login = PageFactory.initElements(driver, Login.class);
-		login.checkLoginPageAvailability(testSuite);
-		driver.close();
-		return testSuite;
+	public TestSuite TC_LOGIN_01(TestSuite testSuite) throws Exception{
+		try{
+			getController();
+			Login login = PageFactory.initElements(driver, Login.class);
+			login.checkLoginPageAvailability(testSuite);
+			}catch(Exception e) {
+				testSuite.setTestExecutionStatus("Failed");
+				testSuite.setTestExecutionErrorMessage("Exception in TC_login_01 : " + e.getMessage());
+			}finally{
+				takeScreenshots(testSuite);
+				driver.close();
+			}
+		System.out.println("      Execution Completed for : TC_login_01");
+	return testSuite;
 	}
 	
 	
-     public TestSuite TC_login_02(TestSuite testSuite) throws Exception{
-		
-    	getController();
-    	Login login = PageFactory.initElements(driver, Login.class);
-    	login.loginWithBlankUsername(testSuite);
-    	driver.close();
+     public TestSuite TC_LOGIN_02(TestSuite testSuite) throws Exception{
+		try{
+			getController();
+			Login login = PageFactory.initElements(driver, Login.class);
+			login.loginWithBlankUsername(testSuite);
+     	}catch(Exception e) {
+	 		testSuite.setTestExecutionStatus("Failed");
+	 		testSuite.setTestExecutionErrorMessage("Exception in TC_login_02 : " + e.getMessage());
+	 	}finally{
+	 		takeScreenshots(testSuite);
+	 		driver.close();
+	 	}
+		System.out.println("      Execution Completed for : TC_login_02");
 		return testSuite;
 	}
 
-     public TestSuite TC_login_03(TestSuite testSuite) throws Exception{
- 
-    	getController();
-     	Login login = PageFactory.initElements(driver, Login.class);
-     	login.loginWithBlankPassword(testSuite);
-     	driver.close();
+     public TestSuite TC_LOGIN_03(TestSuite testSuite) throws Exception{
+    	 try{
+    		 getController();
+    		 Login login = PageFactory.initElements(driver, Login.class);
+    		 login.loginWithBlankPassword(testSuite);
+    	 	}catch(Exception e) {
+    	 		testSuite.setTestExecutionStatus("Failed");
+    	 		testSuite.setTestExecutionErrorMessage("Exception in TC_login_03 : " + e.getMessage());
+    	 	}finally{
+    	 		takeScreenshots(testSuite);
+    	 		driver.close();
+    	 	}
+         System.out.println("      Execution Completed for : TC_login_03");
  	  	return testSuite;
  	}
      
      
-     public TestSuite TC_login_04(TestSuite testSuite) throws Exception{
+     public TestSuite TC_LOGIN_04(TestSuite testSuite) throws Exception{
     	 
     	 try{
     		 getController();
@@ -48,13 +69,15 @@ public class LoginTestSuite extends AbstractHRMSTest {
     	 	}catch(Exception e) {
     	 		testSuite.setTestExecutionStatus("Failed");
     	 		testSuite.setTestExecutionErrorMessage("Exception in TC_login_04 : " + e.getMessage());
+    	 	}finally{
+    			takeScreenshots(testSuite);
+                driver.close();
     	 	}
-            driver.close();
             System.out.println("      Execution Completed for : TC_login_04");
 		return testSuite;
 	}
      
-     public TestSuite TC_login_05(TestSuite testSuite) {
+     public TestSuite TC_LOGIN_05(TestSuite testSuite) {
     
     	 TestDataDao dao = new TestDataDao();
     	 
@@ -70,6 +93,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
   				testSuite.setTestExecutionErrorMessage("Exception in TC_login_05 : " + e.getMessage());
   				e.printStackTrace();
   			}finally{
+  				takeScreenshots(testSuite);
   				driver.close();
   				dao.deleteEmployee(testSuite.getEmp_number());
   			}
@@ -78,7 +102,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
   			return testSuite;
 	}
      
-     public TestSuite TC_login_06(TestSuite testSuite) {
+     public TestSuite TC_LOGIN_06(TestSuite testSuite) {
     	 
     	 TestDataDao dao = new TestDataDao();
     	 
@@ -93,6 +117,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
  	     		testSuite.setTestExecutionErrorMessage("Exception in TC_login_06 : " + e.getMessage());
  	     		e.printStackTrace();
  	     	}finally{
+ 				takeScreenshots(testSuite);
  	     		driver.close();
  	     		dao.deleteEmployee(testSuite.getEmp_number());
  	     	}
@@ -101,7 +126,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
    			return testSuite;
  	}
      
-     public TestSuite TC_login_07(TestSuite testSuite) {
+     public TestSuite TC_LOGIN_07(TestSuite testSuite) {
     	
     	 TestDataDao dao = new TestDataDao();
     	 
@@ -117,6 +142,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
     			testSuite.setTestExecutionErrorMessage("Exception in TC_login_07 : " + e.getMessage());
     			e.printStackTrace();
     		}finally{
+    			takeScreenshots(testSuite);
     			driver.close();
     			dao.deleteEmployee(testSuite.getEmp_number());
     		}
@@ -125,7 +151,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
     	 	return testSuite;
   	}
      
-     public TestSuite TC_login_08(TestSuite testSuite) {
+     public TestSuite TC_LOGIN_08(TestSuite testSuite) {
     	 
     	TestDataDao dao = new TestDataDao();
     	 
@@ -141,6 +167,7 @@ public class LoginTestSuite extends AbstractHRMSTest {
 			testSuite.setTestExecutionErrorMessage("Exception in TC_login_08 : " + e.getMessage());
 			e.printStackTrace();
  		}finally{
+			takeScreenshots(testSuite);
  			driver.close();
  			dao.deleteEmployee(testSuite.getEmp_number());
  		}

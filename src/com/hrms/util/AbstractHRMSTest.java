@@ -1,14 +1,20 @@
 package com.hrms.util;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.hrms.common.Common;
 import com.hrms.common.FileUtil;
+import com.hrms.populateTestSuite.TestSuite;
 
 public  class AbstractHRMSTest   {
 
@@ -46,4 +52,15 @@ public WebDriver getController () throws Exception
 		
 	}
 	
+public void takeScreenshots(TestSuite testSuite){
+	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	try {
+		FileUtils.copyFile(scrFile, new File("../AutomationProject/reports/screenshots/" + testSuite.getTestCaseId()+
+				"_" +testSuite.getTestExecutionStatus() + ".png"));
+		} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
 }

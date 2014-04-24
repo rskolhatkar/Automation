@@ -22,6 +22,7 @@ import jxl.format.UnderlineStyle;
 import jxl.write.Label;
 import jxl.write.WritableCellFormat;
 import jxl.write.WritableFont;
+import jxl.write.WritableImage;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
@@ -74,6 +75,8 @@ public class TestReport {
 	            writableSheet.setColumnView(3, 20);
 	            writableSheet.setColumnView(4, 20);
 	            writableSheet.setColumnView(5, 80);
+	           
+	            
 	            
 	            int size = testSuiteObject.size();
 	            int j = 0;
