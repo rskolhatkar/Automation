@@ -5,6 +5,7 @@
     <property name="src.dir"     value="${basedir}/src"/>
    <!-- <property name="classes.dir" value="${build.dir}/classes"/>-->
     <property name="jar.dir" location="${basedir}/jar"/>
+    <property name="testdata.dir" location="${basedir}/testData"/>
 	<property name="main-class"  value="com.hrms.runner.Main"/>
 
     <target name="setClassPath">
@@ -88,7 +89,9 @@
 					lib\testng-6.8.5.jar
 					lib\xalan-2.7.1.jar
 					lib\xercesImpl-2.10.0.jar
-					lib\xml-apis-1.4.01.jar" />
+					lib\xml-apis-1.4.01.jar
+					lib\mysql-connector-java-5.1.23.jar
+					lib\standard.jar" />
 				<attribute name="Built-By" value="RAGHAV"/>
 				<attribute name="Main-Class" value="com.hrms.runner.Main" />
 			</manifest>
@@ -96,6 +99,7 @@
 			<fileset dir="." includes="config/"/>
 			<fileset dir="." includes="lib/"/>
 			<fileset dir="." includes="reports/"/>
+			<fileset dir="." includes="testData/"/>
 		</jar>
 	</target>
 	

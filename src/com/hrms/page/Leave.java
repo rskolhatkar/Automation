@@ -1,5 +1,7 @@
 package com.hrms.page;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -33,7 +35,7 @@ public class Leave extends AbstractHRMSTest {
 	}
 	
 	
-	public void loginLeaveModuleByAdmin(TestSuite testSuite){
+	public void loginLeaveModuleByAdmin(TestSuite testSuite) throws IOException{
 		Common cmn = new Common(driver);
 		expected_value = expected.get("menu.leave.apply");
 		actual_value = cmn.getUiText(submenu_leave_apply_L);
