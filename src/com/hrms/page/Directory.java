@@ -46,7 +46,7 @@ public class Directory  extends AbstractHRMSTest{
 		cmn.takeScreenShots(testSuite);
 	} 
 	
-public void searchByValidEmployeeID(TestSuite testSuite) throws IOException{
+	public void searchByValidEmployeeID(TestSuite testSuite) throws IOException{
 		
 		Common cmn = new Common(driver);	
 		cmn.enterText(empId_L,  testSuite.getDirectoryTestData().getEmployeeId());
